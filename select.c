@@ -160,7 +160,7 @@ int main(int argc, char *argv[])
 			chld.size = read(chld.fr, chld.buf, chld.bufsize);
 			if (chld.size < 0) exit(1);
 			if (chld.size == 0) exit(0);
-			write(chld.fw, chld.buf, chld.size);
+			if (write(chld.fw, chld.buf, chld.size) < 0) exit(1);
 		}
 	}
 	exit(0);
